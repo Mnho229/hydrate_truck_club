@@ -1,0 +1,116 @@
+Make an API grabbing the Truck API.  Removed Ecto as there is only three hours
+to work with data
+
+Figure out URL for truck API
+https://data.sfgov.org/resource/rqzj-sfat.json
+
+Found.  Now get deps for making api request and json decoder
+httpoison and poison
+
+While compiling deps, get api token
+
+Had to make account...
+
+Just realized app token is not needed...wasted time.
+
+Need to test api request iex
+
+TEST api request from httpoison working.  Now use truck api link
+
+Was able to successfully get data from truck api and decode it with jason.
+Remove Poison since I did forget jason did come with mix phx.new
+
+Look at JSON and determine structure
+
+JSON is list with maps of data
+
+Get nested data map structure
+%{
+  ":@computed_region_bh8s_q3mv" => "28855",
+  ":@computed_region_fyvs_ahh9" => "6",
+  ":@computed_region_p5aj_wyqh" => "1",
+  ":@computed_region_rxqg_mtj9" => "10",
+  ":@computed_region_yftq_j783" => "4",
+  "address" => "5 THE EMBARCADERO",
+  "applicant" => "Ziaurehman Amini",
+  "block" => "0234",
+  "blocklot" => "0234017",
+  "cnn" => "30727000",
+  "expirationdate" => "2016-03-15T00:00:00.000",
+  "facilitytype" => "Push Cart",
+  "latitude" => "37.794331003246846",
+  "location" => %{
+    "human_address" => "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}",
+    "latitude" => "37.794331003246846",
+    "longitude" => "-122.39581105302317"
+  },
+  "locationdescription" => "MARKET ST: DRUMM ST intersection",
+  "longitude" => "-122.39581105302317",
+  "lot" => "017",
+  "objectid" => "735318",
+  "permit" => "15MFF-0159",
+  "priorpermit" => "0",
+  "received" => "20151231",
+  "schedule" => "http://bsm.sfdpw.org/PermitsTracker/reports/report.aspx?title=schedule&report=rptSchedule&params=permit=15MFF-0159&ExportPDF=1&Filename=15MFF-0159_schedule.pdf",
+  "status" => "REQUESTED",
+  "x" => "6013916.72",
+  "y" => "2117244.027"
+}
+
+string keys
+
+Could probably use "status" as filter in stretch
+
+Display the first entry into liveview
+
+Set up route
+
+Set up liveview and display one of the fields of the first piece
+
+Now filter list to only have trucks containing drinks in "fooditems" string
+
+"fooditems" must exist and then must have drink terms present to count.
+Need to scour list briefly for drink terms
+
+create array of drink terms and lowercase "fooditems" string
+
+check if string contains any term within array
+
+List all qualifying trucks in live view 
+
+Add extra filter for "Approved" trucks only.
+
+Stretch goal: Collapse any trucks with the same name together
+
+Change header from default phoenix to header
+
+Restructure code in live controller to more fitting context files
+
+Transition from pipeline to with statement for better error handling in API side
+
+Make context file for truck filtering
+
+Cull code in live controller and add with since we're still in error prone territory
+and also further plans to add options for additional filters
+
+Add conditional in heex for different outputs of fetch_trucks
+
+Scratch previous two.  Better to do case here.   Add default assigns
+
+Slight CSS work to better separate individual trucks
+
+Add filter for the given trucks for more interactability.
+
+Add statement for when truck list is empty due to filters
+
+Add moduledocs for context and sf data
+
+Add text and css flavor to header
+
+happy path unit tests for sf data api and trucks context
+
+Remove swoosh from deps
+
+Add happy path test for navigating to /htc
+
+TIME.  mix format

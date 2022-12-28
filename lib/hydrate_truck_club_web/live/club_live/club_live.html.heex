@@ -1,0 +1,20 @@
+<div>
+  <.form let={f} for={:filter} phx-change="filter">
+    <%= label f, :food_filter %>
+    <%= text_input f, :food_filter %>
+  </.form>
+</div>
+
+<%= if @filtered_trucks == [] do %>
+  <h3>No trucks found with these filters</h3>
+<% end %>
+
+<%= for truck <- @filtered_trucks do %>
+  <div class="truck-container">
+    <h3 class="margin-zero"><%= truck["applicant"] %></h3>
+    <p class="margin-zero"><%= truck["address"] %></p>
+    <p>Available foods: <%= truck["fooditems"] %></p>
+  </div>
+<% end %>
+
+<p class="alert-danger"><%= @error_statement %></p>
