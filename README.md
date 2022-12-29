@@ -16,4 +16,4 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000/htc`](http://localhost:4000/htc) from your browser. Please do not visit [`localhost:4000`](http://localhost:4000) as that just leads to a "Welcome to Phoenix" default page given by `mix phx.new`.
 
-If you are interested in viewing my thoughts about this code assessment, please go to [`notes/code_assessment_thoughts.pdf](https://github.com/Mnho229/hydrate_truck_club/blob/main/notes/code_assessment_thoughts.pdf) or view the pdf directly in the repository in the notes folder.
+If you are interested in viewing my thoughts about this code assessment, please go to [`notes/code_assessment_thoughts.pdf`](https://github.com/Mnho229/hydrate_truck_club/blob/main/notes/code_assessment_thoughts.pdf) or view the pdf directly in the repository in the notes folder.
